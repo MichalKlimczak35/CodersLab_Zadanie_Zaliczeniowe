@@ -1,4 +1,4 @@
-package AddAndDeleteAddress.Pages;
+package MyStoreTests.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +31,7 @@ public class AddNewAddressPage {
         zipcodeField.sendKeys(zipcode);
         cityField.sendKeys(city);
         phoneField.sendKeys(phone);
-        countryList.sendKeys("United Kingdom");
+        countryList.sendKeys(country);
         saveButton.click();
 
         return new AddressListPage(driver);

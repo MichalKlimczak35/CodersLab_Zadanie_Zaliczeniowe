@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("AddAndDeleteAddress.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/BuyASweater.feature");
 formatter.feature({
   "line": 1,
-  "name": "AddAndDeleteAddress",
+  "name": "BuyASweater",
   "description": "",
-  "id": "addanddeleteaddress",
+  "id": "buyasweater",
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
   "line": 3,
-  "name": "User can add and delete his an address",
+  "name": "User can buy a sweater",
   "description": "",
-  "id": "addanddeleteaddress;user-can-add-and-delete-his-an-address",
+  "id": "buyasweater;user-can-buy-a-sweater",
   "type": "scenario_outline",
   "keyword": "Scenario Outline"
 });
@@ -26,68 +26,86 @@ formatter.step({
 });
 formatter.step({
   "line": 6,
-  "name": "User logs in using email and password. \u003cemail\u003e , \u003cpassword\u003e",
+  "name": "User logs in onto his account using email and password. \u003cemail\u003e , \u003cpassword\u003e",
   "keyword": "And "
 });
 formatter.step({
   "line": 7,
-  "name": "User fill the new address form with the following information: \u003callias\u003e , \u003ccompany\u003e , \u003caddress\u003e , \u003czip code\u003e , \u003ccity\u003e , \u003cphone\u003e , \u003ccountry\u003e",
+  "name": "User can select Hummingbird printed sweater",
   "keyword": "And "
 });
 formatter.step({
   "line": 8,
-  "name": "User will verify if the address he provided is correct. \u003callias\u003e , \u003ccompany\u003e , \u003caddress\u003e , \u003czip code\u003e , \u003ccity\u003e , \u003cphone\u003e , \u003ccountry\u003e",
-  "keyword": "Then "
+  "name": "User can see if the product has an discount",
+  "keyword": "And "
 });
 formatter.step({
   "line": 9,
-  "name": "User can delete the address",
+  "name": "User can select desired size of the product \u003csize\u003e",
   "keyword": "And "
 });
-formatter.examples({
+formatter.step({
+  "line": 10,
+  "name": "User can select \u003camount\u003e of products to order",
+  "keyword": "And "
+});
+formatter.step({
   "line": 11,
+  "name": "User can proceed to checkout",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 12,
+  "name": "User can place an order filling necessary information. \u003caddress\u003e , \u003czipCode\u003e , \u003ccity\u003e , \u003ccountry\u003e",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 13,
+  "name": "User makes a screenshot of their order",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 15,
   "name": "",
   "description": "",
-  "id": "addanddeleteaddress;user-can-add-and-delete-his-an-address;",
+  "id": "buyasweater;user-can-buy-a-sweater;",
   "rows": [
     {
       "cells": [
         "email",
         "password",
-        "allias",
-        "company",
+        "size",
+        "amount",
         "address",
-        "zip code",
+        "zipCode",
         "city",
-        "phone",
         "country"
       ],
-      "line": 12,
-      "id": "addanddeleteaddress;user-can-add-and-delete-his-an-address;;1"
+      "line": 16,
+      "id": "buyasweater;user-can-buy-a-sweater;;1"
     },
     {
       "cells": [
         "utfsitumnkgcnazjnc@tbbyt.net",
         "test125678",
-        "MK",
-        "Coders Lab",
+        "XL",
+        "4",
         "Zgoda 13",
-        "01-805",
+        "01-007",
         "Pruszkow",
-        "156984777",
         "United Kingdom"
       ],
-      "line": 13,
-      "id": "addanddeleteaddress;user-can-add-and-delete-his-an-address;;2"
+      "line": 17,
+      "id": "buyasweater;user-can-buy-a-sweater;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 13,
-  "name": "User can add and delete his an address",
+  "line": 17,
+  "name": "User can buy a sweater",
   "description": "",
-  "id": "addanddeleteaddress;user-can-add-and-delete-his-an-address;;2",
+  "id": "buyasweater;user-can-buy-a-sweater;;2",
   "type": "scenario",
   "keyword": "Scenario Outline"
 });
@@ -103,7 +121,7 @@ formatter.step({
 });
 formatter.step({
   "line": 6,
-  "name": "User logs in using email and password. utfsitumnkgcnazjnc@tbbyt.net , test125678",
+  "name": "User logs in onto his account using email and password. utfsitumnkgcnazjnc@tbbyt.net , test125678",
   "matchedColumns": [
     0,
     1
@@ -112,147 +130,159 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "User fill the new address form with the following information: MK , Coders Lab , Zgoda 13 , 01-805 , Pruszkow , 156984777 , United Kingdom",
-  "matchedColumns": [
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8
-  ],
+  "name": "User can select Hummingbird printed sweater",
   "keyword": "And "
 });
 formatter.step({
   "line": 8,
-  "name": "User will verify if the address he provided is correct. MK , Coders Lab , Zgoda 13 , 01-805 , Pruszkow , 156984777 , United Kingdom",
-  "matchedColumns": [
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8
-  ],
-  "keyword": "Then "
+  "name": "User can see if the product has an discount",
+  "keyword": "And "
 });
 formatter.step({
   "line": 9,
-  "name": "User can delete the address",
+  "name": "User can select desired size of the product XL",
+  "matchedColumns": [
+    2
+  ],
   "keyword": "And "
 });
+formatter.step({
+  "line": 10,
+  "name": "User can select 4 of products to order",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 11,
+  "name": "User can proceed to checkout",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 12,
+  "name": "User can place an order filling necessary information. Zgoda 13 , 01-007 , Pruszkow , United Kingdom",
+  "matchedColumns": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 13,
+  "name": "User makes a screenshot of their order",
+  "keyword": "Then "
+});
 formatter.match({
-  "location": "AddAndDeleteAddress.goToMainPage()"
+  "location": "MyStoreSteps.goToMainPage()"
 });
 formatter.result({
-  "duration": 3019073300,
+  "duration": 3359589000,
   "status": "passed"
 });
 formatter.match({
-  "location": "AddAndDeleteAddress.goToLogInSite()"
+  "location": "MyStoreSteps.goToLogInSite()"
 });
 formatter.result({
-  "duration": 219045700,
+  "duration": 223957300,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
       "val": "utfsitumnkgcnazjnc@tbbyt.net",
-      "offset": 39
-    },
-    {
-      "val": "test125678",
-      "offset": 70
-    }
-  ],
-  "location": "AddAndDeleteAddress.logIn(String,String)"
-});
-formatter.result({
-  "duration": 639907800,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "MK",
-      "offset": 63
-    },
-    {
-      "val": "Coders Lab",
-      "offset": 68
-    },
-    {
-      "val": "Zgoda 13",
-      "offset": 81
-    },
-    {
-      "val": "01-805",
-      "offset": 92
-    },
-    {
-      "val": "Pruszkow",
-      "offset": 101
-    },
-    {
-      "val": "156984777",
-      "offset": 112
-    },
-    {
-      "val": "United Kingdom",
-      "offset": 124
-    }
-  ],
-  "location": "AddAndDeleteAddress.addNewAddress(String,String,String,String,String,String,String)"
-});
-formatter.result({
-  "duration": 304578700,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "MK",
       "offset": 56
     },
     {
-      "val": "Coders Lab",
-      "offset": 61
-    },
-    {
-      "val": "Zgoda 13",
-      "offset": 74
-    },
-    {
-      "val": "01-805",
-      "offset": 85
-    },
-    {
-      "val": "Pruszkow",
-      "offset": 94
-    },
-    {
-      "val": "156984777",
-      "offset": 105
-    },
-    {
-      "val": "United Kingdom",
-      "offset": 117
+      "val": "test125678",
+      "offset": 87
     }
   ],
-  "location": "AddAndDeleteAddress.compareAddresses(String,String,String,String,String,String,String)"
+  "location": "MyStoreSteps.logIn(String,String)"
 });
 formatter.result({
-  "duration": 18254400,
+  "duration": 681517100,
   "status": "passed"
 });
 formatter.match({
-  "location": "AddAndDeleteAddress.deleteAddress()"
+  "location": "MyStoreSteps.searchForProduct()"
 });
 formatter.result({
-  "duration": 205991500,
+  "duration": 242721500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "MyStoreSteps.checkPromotion()"
+});
+formatter.result({
+  "duration": 16205700,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "XL",
+      "offset": 44
+    }
+  ],
+  "location": "MyStoreSteps.selectSize(String)"
+});
+formatter.result({
+  "duration": 221287400,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "4",
+      "offset": 16
+    }
+  ],
+  "location": "MyStoreSteps.selectAmount(String)"
+});
+formatter.result({
+  "duration": 17005000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "MyStoreSteps.addToCartAndProceedToCheckOut()"
+});
+formatter.result({
+  "duration": 1329510300,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Zgoda 13 ",
+      "offset": 55
+    },
+    {
+      "val": "01-007",
+      "offset": 66
+    },
+    {
+      "val": "Pruszkow",
+      "offset": 75
+    },
+    {
+      "val": "United Kingdom",
+      "offset": 86
+    }
+  ],
+  "location": "MyStoreSteps.fillCheckOutForm(String,String,String,String)"
+});
+formatter.result({
+  "duration": 1894393200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "MyStoreSteps.makeScreenshot()"
+});
+formatter.result({
+  "duration": 247927900,
   "status": "passed"
 });
 });

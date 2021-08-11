@@ -1,4 +1,4 @@
-package AddAndDeleteAddress.Pages;
+package MyStoreTests.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,4 +26,5 @@ public class LogInOrCreateNewAccountPage {
         return new AccountInfoPage(driver);
 
     }
+
 }

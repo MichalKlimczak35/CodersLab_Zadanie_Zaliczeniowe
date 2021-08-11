@@ -1,6 +1,6 @@
-package AddAndDeleteAddress.Steps;
+package MyStoreTests.Steps;
 
-import AddAndDeleteAddress.Pages.*;
+import MyStoreTests.Pages.*;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,15 +9,19 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class AddAndDeleteAddress {
+public class MyStoreSteps {
 
     private WebDriver driver;
+    private MainSite mainSite;
     private LogInOrCreateNewAccountPage loginSite;
     private AccountInfoPage accountInfoPage;
     private AddNewAddressPage addNewAddressPage;
     private AddressListPage addressListPage;
+    private ProductPage productPage;
+    private CheckOutPage checkOutPage;
 
     @Given("User is on Main site")
     public void goToMainPage() {
@@ -34,13 +38,13 @@ public class AddAndDeleteAddress {
     @When("User goes to sign in site")
     public void goToLogInSite() {
 
-        MainSite mainSite = new MainSite(driver);
+        mainSite = new MainSite(driver);
         loginSite = mainSite.goToSignInSite();
 
     }
 
     @And("User logs in using email and password. (.*) , (.*)")
-    public void logIn(String email, String password) {
+    public void logInAndGoToAddNewAddressSite(String email, String password) {
 
         accountInfoPage = loginSite.signIn(email, password);
         addNewAddressPage = accountInfoPage.goToAddNewAddressPage();
@@ -57,7 +61,6 @@ public class AddAndDeleteAddress {
     public void compareAddresses(String allias, String company, String address, String zipcode, String city, String phone, String country) {
 
         String expectedResult = allias + "\n" + "Michał Klimczak" + "\n" + company + "\n" + address + "\n" + zipcode + "\n" + city + "\n" + country + "\n" + phone;
-
         Assert.assertEquals(expectedResult, addressListPage.getAddress());
 
     }
@@ -74,6 +77,59 @@ public class AddAndDeleteAddress {
 
         Assert.assertEquals("Address successfully deleted!", addressListPage.verifyAddressDeletion());
 
+    }
+
+    @And("User logs in onto his account using email and password. (.*) , (.*)")
+    public void logIn(String email, String password) {
+
+        accountInfoPage = loginSite.signIn(email, password);
+        mainSite = accountInfoPage.returnToMainSite();
+
+    }
+
+    @And("User can select Hummingbird printed sweater")
+    public void searchForProduct() {
+
+        productPage = mainSite.selectHummingBirdPrintedSweater();
+
+    }
+
+    @And("User can see if the product has an discount")
+    public void checkPromotion() {
+
+        Assert.assertEquals("SAVE 20%", productPage.checkPromotion());
+    }
+
+    @And("User can select desired size of the product (.*)")
+    public void selectSize(String size) {
+
+        productPage.selectSize(size);
+
+    }
+
+    @And("User can select (.*) of products to order")
+    public void selectAmount(String amount) {
+
+        productPage.selectAmount(amount);
+
+    }
+
+    @And("User can proceed to checkout")
+    public void addToCartAndProceedToCheckOut() {
+
+        checkOutPage = productPage.addProductToCartAndGoToCheckOut();
+    }
+
+    @And("User can place an order filling necessary information. (.*), (.*) , (.*) , (.*)")
+    public void fillCheckOutForm(String address ,String zipCode , String city , String country){
+
+        checkOutPage.fillCheckOutForm(address, zipCode, city, country);
+
+    }
+
+    @Then("User makes a screenshot of their order")
+    public void makeScreenshot() throws IOException {
+        checkOutPage.makeAScreenshotOfTheOrder();
     }
 
 
