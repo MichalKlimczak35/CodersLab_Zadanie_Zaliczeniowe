@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class AddNewAddressPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public AddNewAddressPage(WebDriver driver) {
 

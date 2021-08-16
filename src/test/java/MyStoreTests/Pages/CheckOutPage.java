@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CheckOutPage {
 
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CheckOutPage(WebDriver driver) {
 
@@ -32,7 +32,6 @@ public class CheckOutPage {
         countryList.sendKeys(country);
         continueButton1.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
         WebElement shippingRadial = driver.findElement(By.cssSelector("div.delivery-option:nth-child(1) > div:nth-child(1) > span:nth-child(1) > span:nth-child(2)"));
         shippingRadial.click();
         WebElement continueButton2 = driver.findElement(By.cssSelector("button.continue:nth-child(2)"));

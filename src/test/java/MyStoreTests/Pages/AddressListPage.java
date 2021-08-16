@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class AddressListPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public AddressListPage(WebDriver driver) {
 

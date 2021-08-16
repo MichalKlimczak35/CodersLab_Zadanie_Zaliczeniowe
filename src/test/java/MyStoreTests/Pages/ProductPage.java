@@ -7,12 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public class ProductPage {
 
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public ProductPage(WebDriver driver) {
 
@@ -22,9 +21,7 @@ public class ProductPage {
 
     public String checkPromotion() {
 
-        String promo = driver.findElement(By.cssSelector("span.discount")).getText();
-
-        return promo;
+        return driver.findElement(By.cssSelector("span.discount")).getText();
     }
 
     public void selectSize(String size) {

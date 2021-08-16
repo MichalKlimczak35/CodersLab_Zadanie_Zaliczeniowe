@@ -4,6 +4,7 @@ Feature: BuyASweater
     Given User is on Main site
     When User goes to sign in site
     And User logs in onto his account using email and password. <email> , <password>
+    And User returns to the Main site
     And User can select Hummingbird printed sweater
     And User can see if the product has an discount
     And User can select desired size of the product <size>

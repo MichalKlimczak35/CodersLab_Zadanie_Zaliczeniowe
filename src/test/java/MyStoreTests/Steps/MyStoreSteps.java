@@ -23,6 +23,10 @@ public class MyStoreSteps {
     private ProductPage productPage;
     private CheckOutPage checkOutPage;
 
+    //----------------------------------------------------------------------------------------------------------------//
+    //------------------------------------------------    Given    ---------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
+
     @Given("User is on Main site")
     public void goToMainPage() {
 
@@ -35,6 +39,10 @@ public class MyStoreSteps {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+    //------------------------------------------------    When    ----------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
+
     @When("User goes to sign in site")
     public void goToLogInSite() {
 
@@ -43,6 +51,10 @@ public class MyStoreSteps {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+    //-------------------------------------------------    And    ----------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User logs in using email and password. (.*) , (.*)")
     public void logInAndGoToAddNewAddressSite(String email, String password) {
 
@@ -50,20 +62,16 @@ public class MyStoreSteps {
         addNewAddressPage = accountInfoPage.goToAddNewAddressPage();
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User fill the new address form with the following information: (.*) , (.*) , (.*) , (.*) , (.*) , (.*) , (.*)")
-    public void addNewAddress(String allias, String company, String address, String zipcode, String city, String phone, String country) {
+    public void addNewAddress(String alias, String company, String address, String zipcode, String city, String phone, String country) {
 
-        addressListPage = addNewAddressPage.addNewAddress(allias, company, address, zipcode, city, phone, country);
-
-    }
-
-    @Then("User will verify if the address he provided is correct. (.*) , (.*) , (.*) , (.*) , (.*) , (.*) , (.*)")
-    public void compareAddresses(String allias, String company, String address, String zipcode, String city, String phone, String country) {
-
-        String expectedResult = allias + "\n" + "Michał Klimczak" + "\n" + company + "\n" + address + "\n" + zipcode + "\n" + city + "\n" + country + "\n" + phone;
-        Assert.assertEquals(expectedResult, addressListPage.getAddress());
+        addressListPage = addNewAddressPage.addNewAddress(alias, company, address, zipcode, city, phone, country);
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
 
     @And("User can delete the address")
     public void deleteAddress() {
@@ -72,20 +80,34 @@ public class MyStoreSteps {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User can verify address deletion")
-    public void verifydeletion() {
+    public void verifyDeletion() {
 
         Assert.assertEquals("Address successfully deleted!", addressListPage.verifyAddressDeletion());
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User logs in onto his account using email and password. (.*) , (.*)")
     public void logIn(String email, String password) {
 
         accountInfoPage = loginSite.signIn(email, password);
+
+    }
+
+    //----------------------------------------------------------------------------------------------------------------//
+
+    @And("User returns to the Main site")
+    public void returnToMainSiteFromAccountPage() {
+
         mainSite = accountInfoPage.returnToMainSite();
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
 
     @And("User can select Hummingbird printed sweater")
     public void searchForProduct() {
@@ -94,11 +116,15 @@ public class MyStoreSteps {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User can see if the product has an discount")
     public void checkPromotion() {
 
         Assert.assertEquals("SAVE 20%", productPage.checkPromotion());
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
 
     @And("User can select desired size of the product (.*)")
     public void selectSize(String size) {
@@ -107,6 +133,8 @@ public class MyStoreSteps {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User can select (.*) of products to order")
     public void selectAmount(String amount) {
 
@@ -114,23 +142,38 @@ public class MyStoreSteps {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User can proceed to checkout")
     public void addToCartAndProceedToCheckOut() {
 
         checkOutPage = productPage.addProductToCartAndGoToCheckOut();
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+
     @And("User can place an order filling necessary information. (.*), (.*) , (.*) , (.*)")
-    public void fillCheckOutForm(String address ,String zipCode , String city , String country){
+    public void fillCheckOutForm(String address, String zipCode, String city, String country) {
 
         checkOutPage.fillCheckOutForm(address, zipCode, city, country);
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
+    //------------------------------------------------    Then    ----------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
 
     @Then("User makes a screenshot of their order")
     public void makeScreenshot() throws IOException {
         checkOutPage.makeAScreenshotOfTheOrder();
     }
 
+    @Then("User will verify if the address he provided is correct. (.*) , (.*) , (.*) , (.*) , (.*) , (.*) , (.*)")
+    public void compareAddresses(String alias, String company, String address, String zipcode, String city, String phone, String country) {
+
+        String expectedResult = alias + "\n" + "Michał Klimczak" + "\n" + company + "\n" + address + "\n" + zipcode + "\n" + city + "\n" + country + "\n" + phone;
+        Assert.assertEquals(expectedResult, addressListPage.getAddress());
+
+    }
 
 }

@@ -6,15 +6,13 @@ import org.openqa.selenium.WebElement;
 
 public class LogInOrCreateNewAccountPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    public LogInOrCreateNewAccountPage(WebDriver driver){
-
-            this.driver = driver;
-
+    public LogInOrCreateNewAccountPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public AccountInfoPage signIn(String email, String password){
+    public AccountInfoPage signIn(String email, String password) {
 
         WebElement emailField = driver.findElement(By.cssSelector("div.form-group:nth-child(2) > div:nth-child(2) > input:nth-child(1)"));
         emailField.sendKeys(email);

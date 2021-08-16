@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class AccountInfoPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public AccountInfoPage(WebDriver driver) {
 
