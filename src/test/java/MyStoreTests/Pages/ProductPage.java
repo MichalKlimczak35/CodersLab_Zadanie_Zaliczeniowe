@@ -10,8 +10,11 @@ import java.util.Objects;
 
 public class ProductPage {
 
-
     private final WebDriver driver;
+
+    //----------------------------------------------------------------------------------------------------------------//
+    //--------------------------------------------    Constructor    -------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
 
     public ProductPage(WebDriver driver) {
 
@@ -19,10 +22,16 @@ public class ProductPage {
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------//
+    //----------------------------------------------    Methods    ---------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
+
     public String checkPromotion() {
 
         return driver.findElement(By.cssSelector("span.discount")).getText();
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
 
     public void selectSize(String size) {
 
@@ -39,6 +48,7 @@ public class ProductPage {
             System.out.println("Nie ma takiego rozmiaru lub źle wprowadzono rozmiar. Prawidłowe rozmiary(duże litery) to S,M,L,XL");
         }
     }
+    //----------------------------------------------------------------------------------------------------------------//
 
     public void selectAmount(String amount) {
 
@@ -47,6 +57,8 @@ public class ProductPage {
         amountField.sendKeys(amount);
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
 
     public CheckOutPage addProductToCartAndGoToCheckOut() {
 
@@ -61,5 +73,4 @@ public class ProductPage {
 
         return new CheckOutPage(driver);
     }
-
 }

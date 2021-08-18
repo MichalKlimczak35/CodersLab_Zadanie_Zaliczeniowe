@@ -2,21 +2,27 @@ package MyStoreTests.Pages;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
 
 public class CheckOutPage {
 
-
     private final WebDriver driver;
+
+    //----------------------------------------------------------------------------------------------------------------//
+    //--------------------------------------------    Constructor    -------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
 
     public CheckOutPage(WebDriver driver) {
 
         this.driver = driver;
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
+    //----------------------------------------------    Methods    ---------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
 
     public void fillCheckOutForm(String address, String zipCode, String city, String country) {
 
@@ -45,12 +51,13 @@ public class CheckOutPage {
         placeOrderButton.click();
     }
 
-    public void makeAScreenshotOfTheOrder() throws IOException {
+    //----------------------------------------------------------------------------------------------------------------//
+
+    public void makeAScreenshotOfTheOrder(String n) throws IOException {
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file, new File("./out/screenshot.png"));
+        FileUtils.copyFile(file, new File("./out/screenshot" + n + ".png"));
 
     }
-
 
 }

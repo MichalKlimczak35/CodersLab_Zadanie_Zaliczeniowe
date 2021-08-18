@@ -11,11 +11,9 @@ Feature: BuyASweater
     And User can select <amount> of products to order
     And User can proceed to checkout
     And User can place an order filling necessary information. <address> , <zipCode> , <city> , <country>
-    Then User makes a screenshot of their order
+    Then User makes a screenshot of their order. <n>
 
     Examples:
-      | email                        | password   | size | amount | address  | zipCode | city     | country        |
-      | utfsitumnkgcnazjnc@tbbyt.net | test125678 | XL   | 4      | Zgoda 13 | 01-007  | Pruszkow | United Kingdom |
-
-
-
+      | email                        | password   | size | amount | address   | zipCode | city     | country        | n |
+      | utfsitumnkgcnazjnc@tbbyt.net | test125678 | XL   | 4      | Zgoda 13  | 01-007  | Pruszkow | United Kingdom | 1 |
+      | yzwsqvwdedjmisdvlw@uivvn.net | 123456789  | M    | 6      | Promyka 1 | 02-572  | Pruszkow | United Kingdom | 2 |

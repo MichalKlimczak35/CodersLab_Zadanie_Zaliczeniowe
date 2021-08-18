@@ -8,9 +8,19 @@ public class MainSite {
 
     private final WebDriver driver;
 
+    //----------------------------------------------------------------------------------------------------------------//
+    //--------------------------------------------    Constructor    -------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
+
     public MainSite(WebDriver driver) {
+
         this.driver = driver;
+
     }
+
+    //----------------------------------------------------------------------------------------------------------------//
+    //----------------------------------------------    Methods    ---------------------------------------------------//
+    //----------------------------------------------------------------------------------------------------------------//
 
     public LogInOrCreateNewAccountPage goToSignInSite() {
 
@@ -19,7 +29,9 @@ public class MainSite {
         return new LogInOrCreateNewAccountPage(driver);
     }
 
-    public ProductPage selectHummingBirdPrintedSweater(){
+    //----------------------------------------------------------------------------------------------------------------//
+
+    public ProductPage selectHummingBirdPrintedSweater() {
 
         WebElement selectedProduct = driver.findElement(By.cssSelector("article.product-miniature:nth-child(2)"));
         selectedProduct.click();

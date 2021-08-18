@@ -9,8 +9,10 @@ Feature: AddAndDeleteAddress
     And User can delete the address
 
     Examples:
-      | email                        | password   | alias | company    | address  | zip code | city     | phone     | country        |
-      | utfsitumnkgcnazjnc@tbbyt.net | test125678 | MK    | Coders Lab | Zgoda 13 | 01-805   | Pruszkow | 156984777 | United Kingdom |
+      | email                        | password   | alias | company    | address   | zip code | city     | phone     | country        |
+      | utfsitumnkgcnazjnc@tbbyt.net | test125678 | MK    | Coders Lab | Zgoda 13  | 01-805   | Pruszkow | 156984777 | United Kingdom |
+      | yzwsqvwdedjmisdvlw@uivvn.net | 123456789  | MK2   | Coders Lab | Promyka 1 | 02-572   | Pruszkow | 123457954 | United Kingdom |
+
 
 
 

@@ -163,9 +163,9 @@ public class MyStoreSteps {
     //------------------------------------------------    Then    ----------------------------------------------------//
     //----------------------------------------------------------------------------------------------------------------//
 
-    @Then("User makes a screenshot of their order")
-    public void makeScreenshot() throws IOException {
-        checkOutPage.makeAScreenshotOfTheOrder();
+    @Then("User makes a screenshot of their order. (.*)")
+    public void makeScreenshot(String n) throws IOException {
+        checkOutPage.makeAScreenshotOfTheOrder(n);
     }
 
     @Then("User will verify if the address he provided is correct. (.*) , (.*) , (.*) , (.*) , (.*) , (.*) , (.*)")
